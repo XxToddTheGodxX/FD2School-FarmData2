@@ -28,6 +28,14 @@ describe('Testing for the transplanting report page', () => {
         cy.waitForPage()
     })
 
+    context('check generate report button', () =>{
+        it('button has labeled "Generate Report" and is enabled', () => {
+            cy.get('[data-cy = generate-rpt-btn]').should('have.text', "Generate Report")
+            cy.get('[data-cy = generate-rpt-btn]').should('be.enabled')
+        })
+    }
+    ),
+
     context('can set dates and then render the report', () => {
 
         it('allows user input of the start and end dates', () => {
