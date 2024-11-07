@@ -28,6 +28,13 @@ describe('Testing for the transplanting report page', () => {
         cy.waitForPage()
     })
 
+    it('check Transplanting Report Header', () => {
+        cy.get('[data-cy=Tr-report]')
+        .should('have.text', 'Transplanting Report')
+    })
+
+
+
     context('can set dates and then render the report', () => {
 
         it('allows user input of the start and end dates', () => {
