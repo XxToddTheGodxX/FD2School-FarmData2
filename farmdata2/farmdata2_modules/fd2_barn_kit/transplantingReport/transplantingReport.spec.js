@@ -33,6 +33,16 @@ describe('Testing for the transplanting report page', () => {
         .should('have.text', 'Transplanting Report')
     })
 
+    it('check generate report button', () => {
+        cy.get('[data-cy=generate-rpt-btn]')
+        .should('have.text', 'Generate Report')
+        cy.get('[data-cy=generate-rpt-btn]')
+        .should('be.enabled')
+    })
+
+
+
+
 
 
     context('can set dates and then render the report', () => {
