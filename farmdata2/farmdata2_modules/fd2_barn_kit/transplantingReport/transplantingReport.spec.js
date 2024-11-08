@@ -40,6 +40,11 @@ describe('Testing for the transplanting report page', () => {
         .should('be.enabled')
     })
 
+    it('check default start date is first day of current day', () => {
+        cy.get('[data-cy="date-range-selection"] input[name="set-start-date:"]')
+        .should('have.value', '01/01/2024')
+    })
+
 
 
 
