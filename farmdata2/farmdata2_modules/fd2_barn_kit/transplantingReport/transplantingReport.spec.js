@@ -28,28 +28,6 @@ describe('Testing for the transplanting report page', () => {
         cy.waitForPage()
     })
 
-    it('check Transplanting Report Header', () => {
-        cy.get('[data-cy=Tr-report]')
-        .should('have.text', 'Transplanting Report')
-    })
-
-    it('check generate report button', () => {
-        cy.get('[data-cy=generate-rpt-btn]')
-        .should('have.text', 'Generate Report')
-        cy.get('[data-cy=generate-rpt-btn]')
-        .should('be.enabled')
-    })
-
-    it('check default start date is first day of current day', () => {
-        cy.get('[data-cy="date-range-selection"] input[name="set-start-date:"]')
-        .should('have.value', '01/01/2024')
-    })
-
-
-
-
-
-
     context('can set dates and then render the report', () => {
 
         it('allows user input of the start and end dates', () => {

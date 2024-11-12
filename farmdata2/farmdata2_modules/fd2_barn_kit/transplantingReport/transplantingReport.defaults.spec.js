@@ -18,9 +18,14 @@ it('check generate report button', () => {
     .should('be.enabled')
 })
 
-it('check default start date is first day of current day', () => {
-    cy.get('[data-cy="date-range-selection"]')
-    cy.get('[data-cy="date-range-selection"] input[name="set-start-date:"]')
-    .should('have.value', '01/01/2024') 
-    // this is not working yet
-})
+
+describe('Default Start Date Test', () => {
+    it('should have the default start date as the first day of the current year', () => {
+      const currentYear = new Date().getFullYear();
+      const firstDayOfYear = `${currentYear}-01-01`;
+  
+      cy.get('[data-cy=date-select]')
+        .should('have.value', firstDayOfYear);
+    });
+  });
+  
