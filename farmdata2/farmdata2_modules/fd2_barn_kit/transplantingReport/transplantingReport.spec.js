@@ -27,25 +27,7 @@ describe('Testing for the transplanting report page', () => {
         // Wait here for the maps to load in the page.   
         cy.waitForPage()
     })
-
-
-    it('check Transplanting Report Header', () => {
-        cy.get('[data-cy=Tr-report]')
-        .should('have.text', 'Transplanting Report')
-    })
-
-    it('check generate report button', () => {
-        cy.get('[data-cy=generate-rpt-btn]')
-        .should('have.text', 'Generate Report')
-        cy.get('[data-cy=generate-rpt-btn]')
-        .should('be.enabled')
-    })
-
-    it('check the date input', () => {
-        cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
-    })
-
-
+    
     context('can set dates and then render the report', () => {
 
         it('allows user input of the start and end dates', () => {

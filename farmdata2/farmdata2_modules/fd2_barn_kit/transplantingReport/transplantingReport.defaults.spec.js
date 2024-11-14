@@ -27,5 +27,10 @@ describe('Default Start Date Test', () => {
       cy.get('[data-cy=date-select]')
         .should('have.value', firstDayOfYear);
     });
+    
+    it('check the date input', () => {
+        cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
+    })
+
   });
   
