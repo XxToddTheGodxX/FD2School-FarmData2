@@ -28,6 +28,7 @@ describe('Testing for the transplanting report page', () => {
         cy.waitForPage()
     })
 
+
     it('check Transplanting Report Header', () => {
         cy.get('[data-cy=Tr-report]')
         .should('have.text', 'Transplanting Report')
@@ -43,8 +44,6 @@ describe('Testing for the transplanting report page', () => {
     it('check the date input', () => {
         cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
     })
-
-
 
 
     context('can set dates and then render the report', () => {
