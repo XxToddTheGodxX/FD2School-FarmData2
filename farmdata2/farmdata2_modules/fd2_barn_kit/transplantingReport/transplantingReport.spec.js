@@ -40,7 +40,9 @@ describe('Testing for the transplanting report page', () => {
         .should('be.enabled')
     })
 
-
+    it('check the date input', () => {
+        cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
+    })
 
 
 
