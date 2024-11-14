@@ -23,10 +23,17 @@ describe('Default Start Date Test', () => {
     it('should have the default start date as the first day of the current year', () => {
       const currentYear = new Date().getFullYear();
       const firstDayOfYear = `${currentYear}-01-01`;
-  
-      cy.get('[data-cy=date-select]')
+      cy.get('[data-cy=start-date-select]')
+      .children()
         .should('have.value', firstDayOfYear);
     });
+
+    it('check the end date is the current date', () => {
+        const currentDate = new Date().toISOString().split('T')[0];
+        cy.get('[data-cy=end-date-select]')
+        .children()
+        .should('have.value', currentDate);
+    })
     
     it('check the date input', () => {
         cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
