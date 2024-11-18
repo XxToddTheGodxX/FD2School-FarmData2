@@ -32,5 +32,9 @@ describe('Default Start Date Test', () => {
         cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
     })
 
-  });
+});
+
+it('check table\'s existence', () => {
+    cy.get('[data-cy=report-table]').should("not.exist");
+})
   
