@@ -1,30 +1,34 @@
-beforeEach(() => {
-    cy.login('manager1', 'farmdata2')
-    cy.visit('/farm/fd2-barn-kit/transplantingReport')
+// Tests the default contents of the Transplanting Report in the BarnKit
+describe('Checks default contents of the Transplanting Report', () => {
+    beforeEach(() => {
+        cy.login('manager1', 'farmdata2')
+        cy.visit('/farm/fd2-barn-kit/transplantingReport')
 
-    // Wait here for the maps to load in the page.   
-    cy.waitForPage()
-})
+        // Wait here for the maps to load in the page.   
+        cy.waitForPage()
+    })
 
-it('check Transplanting Report Header', () => {
-    cy.get('[data-cy=Tr-report]')
-    .should('have.text', 'Transplanting Report')
-})
+    it('check Transplanting Report Header', () => {
+        cy.get('[data-cy=Tr-report]')
+        .should('have.text', 'Transplanting Report')
+    })
 
-it('check generate report button', () => {
-    cy.get('[data-cy=generate-rpt-btn]')
-    .should('have.text', 'Generate Report')
-    cy.get('[data-cy=generate-rpt-btn]')
-    .should('be.enabled')
-})
+    it('check the page contains a section labeled Set Dates', () => {
+        cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
+    })
 
+    it('check generate report button', () => {
+        cy.get('[data-cy=generate-rpt-btn]')
+        .should('have.text', 'Generate Report')
+        cy.get('[data-cy=generate-rpt-btn]')
+        .should('be.enabled')
+    })
 
-describe('Default Start Date Test', () => {
     it('should have the default start date as the first day of the current year', () => {
-      const currentYear = new Date().getFullYear();
-      const firstDayOfYear = `${currentYear}-01-01`;
-      cy.get('[data-cy=start-date-select]')
-      .children()
+        const currentYear = new Date().getFullYear();
+        const firstDayOfYear = `${currentYear}-01-01`;
+        cy.get('[data-cy=start-date-select]')
+        .children()
         .should('have.value', firstDayOfYear);
     });
 
@@ -34,14 +38,10 @@ describe('Default Start Date Test', () => {
         .children()
         .should('have.value', currentDate);
     })
-    
-    it('check the date input', () => {
-        cy.get('[data-cy = set-date-label]').should('have.text', 'Set Dates')
-    })
 
+    it('check table\'s existence', () => {
+        cy.get('[data-cy=report-table]').should("not.exist");
+    })
 });
 
-it('check table\'s existence', () => {
-    cy.get('[data-cy=report-table]').should("not.exist");
-})
   
