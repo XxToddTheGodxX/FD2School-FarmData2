@@ -33,7 +33,7 @@ describe('Testing for the Tray Seeding Summary Table', () => {
 
     it('Check if the Tray Seeding Summary Table exists and is visible when “All” is selected in the seeding type filter', () => {
         cy.get('[data-cy=start-date-select]').type('2015-01-01')
-        cy.get('[data-cy=end-date-select]').type('2019-11-23')
+        cy.get('[data-cy=end-date-select]').type('2017-12-08')
         cy.get('[data-cy=generate-rpt-btn]').click()
         cy.get('[data-cy = seeding-type-dropdown] > [data-cy=dropdown-input]').select("All")
         cy.get('[data-cy=tray-summary]').should('exist')
