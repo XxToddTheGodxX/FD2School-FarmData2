@@ -18,7 +18,7 @@ describe('Test the UI tabs are accurate for each kind of person logged into Farm
     })
 
     it('When guest is selected none of the three tabs should appear', () => {
-        cy.login('guest1', 'farmdata2')
+        cy.login('guest', 'farmdata2')
         cy.visit('/farm')
         cy.get('a.glyphicons-processed[href="/farm/fd2-field-kit"]').should('not.exist')
         cy.get('a.glyphicons-processed[href="/farm/fd2-barn-kit"]').should('not.exist')
